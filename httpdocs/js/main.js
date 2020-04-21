@@ -48,7 +48,11 @@ class Application {
         if (this.state.subprotocol === id) {
             return;
         }
+        const element = React.createElement;
         this.connection.close();
+        this.state.cards = element('div', { className: 'container' },
+            element('div', { className: 'card-deck text-center' }));
+        this.render();
         this.state.subprotocol = id;
         this.connect();
     }

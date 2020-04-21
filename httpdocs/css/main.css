@@ -1,3 +1,7 @@
+* {
+  font-size: 1.9vh;
+}
+
 .site-header {
   background : rgba(0, 0, 0, .85);
   color: white;
@@ -5,8 +9,42 @@
 
 .card {
   margin-left: 0 !important;
+  animation: 1s ease-out 0s 1 slideIn;
 }
 
 .bold {
   font-weight: bold;
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  * {
+    font-size: 2vh;
+  }
+}
+
+@media only screen and (max-width: 2000) {
+  /* For mobile phones: */
+  * {
+    font-size: 1.9vh;
+  }
+}
+
+@media only screen and (max-width: 4000) {
+  /* For mobile phones: */
+  * {
+    font-size: 2.1vh;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
