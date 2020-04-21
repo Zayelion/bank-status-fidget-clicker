@@ -1,15 +1,18 @@
 class CheckingComponent extends React.Component {
-    constructor(id) {
+    constructor(data, id) {
         super();
         this.id = id;
+        this.accountNumber = data.accountNumber
+        this.balance = data.balance;
     }
 
     render() {
         const element = React.createElement;
         return element('div', { className: 'card mb-2 shadow-sm', id: this.id },
             element('div', { className: 'card-body' },
-                element('h5', { className: 'card-title', id: 'card-title' }, 'Current Checking Balance'),
-                element('ph5', { className: 'card-text', id: 'card-text' }, 'card text')
+                element('h5', { className: 'card-title', id: 'card-title' }, 'Checking Account'),
+                element('p', { className: 'card-text', id: 'card-text' }, `Account Number: ${this.accountNumber}`),
+                element('p', { className: 'card-text bold', id: 'card-text' }, `Balance: ${this.balance}`)
             )
         );
     }

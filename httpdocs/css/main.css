@@ -3,6 +3,10 @@
   color: white;
 }
 
-.card-deck {
-  
+.card {
+  margin-left: 0 !important;
+}
+
+.bold {
+  font-weight: bold;
 }

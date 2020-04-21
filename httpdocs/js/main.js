@@ -27,26 +27,26 @@ class Application {
         const element = React.createElement;
         const data = JSON.parse(message.data);
         console.log(data);
-        const cards = data.map((card) => {
+        const cards = data.map((card, i) => {
             switch (card.type) {
                 case 'checking':
-                    return new CheckingComponent(data).render();
+                    return new CheckingComponent(card, i).render();
                 case 'savings':
-                    return new SavingsComponent(data).render();
+                    return new SavingsComponent(card, i).render();
                 case 'credit':
-                    return new CreditComponent(data).render();
+                    return new CreditComponent(card, i).render();
                 case 'loans':
-                    return new LoanComponent(data).render();
+                    return new LoanComponent(card, i).render();
             }
         });
-        this.state.cards = element('div', { className: 'container' }, 
-         element('div', { className: 'card-deck text-center' }, cards));
+        this.state.cards = element('div', { className: 'container' },
+            element('div', { className: 'card-deck text-center' }, cards));
         this.render();
     }
 
     swithEndpoint(id) {
         this.connection.close();
-        this.state.subprotocol = state.navs[id];
+        this.state.subprotocol = id;
         this.connect();
     }
 
@@ -64,7 +64,7 @@ class Application {
 
     connect() {
         const protocol = (location.protocol === 'https:') ? 'wss://' : 'ws://';
-        this.connection = new WebSocket((protocol + location.host), this.state.subprotocol);
+        this.connection = new WebSocket((protocol + location.host) + '/' + this.state.subprotocol);
         this.connection.onopen = this.open.bind(this);
         this.connection.onclose = this.close.bind(this);
         this.connection.onerror = this.error.bind(this);
@@ -73,4 +73,4 @@ class Application {
 }
 
 
-window.Application = new Application();
+window.application = new Application();
