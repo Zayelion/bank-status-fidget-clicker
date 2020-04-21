@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+
+  <main class="">
+    <header
+      class='site-header sticky-top d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm'>
+      <ul class="container d-flex flex-column flex-md-row ">
+        <li class="p-2 d-none d-md-inline-block">
+          Home
+        </li>
+
+        <li class="p-2 d-none d-md-inline-block">
+          Admin
+        </li>
+      </ul>
+    </header>
+    <nav>
+      <div class='container d-flex flex-column flex-md-row'>
+        <div class="row align-items-start">
+          <div class="col">
+            <button class='col' onclick="application.swithEndpoint('android')">Android</button>
+          </div>
+          <div class="col">
+            <button class='col' onclick="application.swithEndpoint('iOS')">iOS</button>
+          </div>
+        </div>
+    </nav>
+    <br />
+    <section id="cards" class="container">
+
+    </section>
+  </main>
+
+
+  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="./js/vendor/react.js"></script>
+  <script src="./js/vendor/react-dom.js"></script>
+  <script src="./js/card.checking.component.js"></script>
+  <script src="./js/card.credit.component.js"></script>
+  <script src="./js/card.loans.component.js"></script>
+  <script src="./js/card.savings.component.js"></script>
+
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
