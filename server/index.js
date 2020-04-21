@@ -93,6 +93,6 @@ if (cluster.isMaster) {
     handleWS(ws, dataandroid);
   });
 
-  app.listen(3000);
+  app.listen(2587);
 
 }
