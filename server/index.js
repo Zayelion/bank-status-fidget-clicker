@@ -5,25 +5,20 @@ var cluster = require('cluster');
 
 
 if (cluster.isMaster) {
-
-
-
-  // Count the machine's CPUs
   var cpuCount = require('os').cpus().length;
 
-  // Create a worker for each CPU
+  cluster.on('exit', function (worker) {
+    console.log(`Worker ${worker.id} died`);
+    cluster.fork();
+  });
+
+
   for (var i = 0; i < cpuCount; i += 1) {
+    console.log('Creating new worker', i);
     cluster.fork();
   }
 
-  cluster.on('exit', function (worker) {
 
-    // Replace the dead worker,
-    // we're not sentimental
-    console.log('Worker %d died :(', worker.id);
-    cluster.fork();
-
-});
 
 } else {
 

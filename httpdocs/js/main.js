@@ -45,6 +45,9 @@ class Application {
     }
 
     swithEndpoint(id) {
+        if (this.state.subprotocol === id) {
+            return;
+        }
         this.connection.close();
         this.state.subprotocol = id;
         this.connect();
